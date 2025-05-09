@@ -1,58 +1,47 @@
-# MusicBlocks AI Contributor 🎵🤖
+# MusicBlocks AI Sampler 🎵✨
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-green)](https://fastapi.tiangolo.com/)
+[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/CoDIngDEMon018/MusicBlocks-ai-sampler)
 
-**Empowering music education through AI-powered sound generation**  
-*Integrate cutting-edge audio AI models directly into MusicBlocks' sampler widget*
+**AI-Powered Music Creation for Education**  
+*Integrate cutting-edge audio generation directly into MusicBlocks' workflow*
 
-![MusicBlocks AI Interface](https://via.placeholder.com/800x400?text=AI+Sample+Generator+Interface)
 
-## 🚀 Features
 
-- **AI-Powered Sound Generation**
-  - Generate instrument samples from text prompts ("jazzy piano", "ethereal synth")
-  - Transform existing recordings with AI effects
-  - Support for MusicGen, AudioLDM2, and Stable Audio models
+## 🌟 Key Features
 
-- **Educator-Focused Platform**
-  - Contribution pathway visualization
-  - Mentorship program integration
-  - Student progress tracking
+### 1. AI-Powered Sound Generation
+![AI Interface](https://github.com/CoDIngDEMon018/MusicBlocks-ai-sampler/blob/main/DemoPics/LandingPage.png)
+- Generate instruments from text prompts ("cosmic synth", "jazz trumpet")
+- Transform existing recordings with AI effects
+- Supports multiple models: MusicGen, AudioLDM2, Stable Audio
 
-- **Technical Highlights**
-  - FastAPI backend with model orchestration
-  - React-based frontend with Tone.js integration
-  - GPU-accelerated inference pipeline
+### 2. Contribution Pathway
+![Contribution Pathway](https://github.com/CoDIngDEMon018/MusicBlocks-ai-sampler/blob/main/DemoPics/Contribution.png)
+- Visual progress tracking
+- Beginner to advanced project tiers
+- Mentor matching system
 
-## ⚙️ Installation
+### 3. Educator-Focused Dashboard
+![Dashboard](https://github.com/CoDIngDEMon018/MusicBlocks-ai-sampler/blob/main/DemoPics/Projects.png)
+- Student progress monitoring
+- Skill development tracking
+- Contribution analytics
+
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.11+
-- Node.js 16+
-- Docker 24+
-- NVIDIA GPU (3050ti)
+- Node.js 18+
+- GPU recommended (CUDA 12.0+)
 
-### Setup
 ```bash
 # Clone repository
-git clone https://github.com/CoDIngDEMon018/MusicBlocks-AI-Contributor
-cd MusicBlocks-AI-Contributor
+git clone https://github.com/CoDIngDEMon018/MusicBlocks-ai-sampler
+cd MusicBlocks-ai-sampler
 
-# Frontend setup
-cd frontend
-npm install
-cp .env.example .env
-
-# Backend setup
-cd ../backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
+# Install dependencies
+make setup
 
 # Start services
-docker-compose up -d  # Starts Redis and Postgres
-npm run dev  # Frontend
-uvicorn main:app --reload  # Backend
+make run
