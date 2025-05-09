@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">Your Profile</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text">
+                    <strong>Role:</strong> 
+                    <span class="badge contributor-badge">
+                        {{ user.role|capitalize }}
+                    </span>
+                </p>
+                <p class="card-text">
+                    <strong>Skills:</strong> 
+                    {{ user.skills or "No skills specified" }}
+                </p>
+                <a href="/pathway" class="btn btn-outline-primary">
+                    View Contribution Pathway
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Your Contributions</div>
+            <div class="card-body">
+                {% if contributions %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Project</th>
+                                <th>Date</th>
+                                <th>Hours</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for contrib in contributions %}
+                            <tr>
+                                <td>{{ contrib.project.title }}</td>
+                                <td>{{ contrib.date.strftime('%Y-%m-%d') }}</td>
+                                <td>{{ contrib.hours }}</td>
+                                <td>
+                                    <span class="badge 
+                                        {% if contrib.status == 'approved' %}
+                                            badge-success
+                                        {% elif contrib.status == 'pending' %}
+                                            badge-warning
+                                        {% else %}
+                                            badge-secondary
+                                        {% endif %}">
+                                        {{ contrib.status|capitalize }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    No contributions yet. Get started with a project!
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid mb-0">
+    <div class="container">
+        <h1 class="display-4 text-center mb-4">🚀 Welcome to MusicBlocks Contributors!</h1>
+        <p class="lead text-center mb-5">Empowering music education through open-source collaboration</p>
+        
+        <div class="row align-items-center">
+            <!-- Text Content -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="getting-started p-4 bg-light rounded shadow">
+                    <h2 class="mb-4 text-primary">🌟 Getting Started</h2>
+                    <div class="step-list">
+                        <div class="step-item d-flex align-items-center mb-4">
+                            <div class="step-icon mr-3">
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </div>
+                            <div class="step-content">
+                                <h5 class="mb-0">Create Your Account</h5>
+                                <p class="text-muted mb-0">Join our community in 30 seconds</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item d-flex align-items-center mb-4">
+                            <div class="step-icon mr-3">
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </div>
+                            <div class="step-content">
+                                <h5 class="mb-0">Choose Your Pathway</h5>
+                                <p class="text-muted mb-0">Beginner to advanced tracks available</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item d-flex align-items-center">
+                            <div class="step-icon mr-3">
+                                <span class="badge badge-primary badge-pill">3</span>
+                            </div>
+                            <div class="step-content">
+                                <h5 class="mb-0">Start Contributing</h5>
+                                <p class="text-muted mb-0">Make your first pull request</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="/register" class="btn btn-success btn-lg px-5 py-3">
+                            Join Now ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="featured-image-container p-3 bg-white rounded-lg shadow-lg">
+                    <img src="{{ url_for('static', filename='images/musicblocks-interface.png') }}" 
+                         alt="MusicBlocks Interface Preview" 
+                         class="img-fluid rounded-lg border"
+                         style="max-width: 100%; height: auto; object-fit: contain;">
+                    <div class="image-caption text-center mt-3">
+                        <small class="text-muted">MusicBlocks v3.0 Interface - Start creating today!</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Section -->
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 h-100">
+                <div class="icon-wrapper mb-3">
+                    <span class="display-4">👩💻</span>
+                </div>
+                <h3>Code Contributions</h3>
+                <p>Improve the core platform with Python/JavaScript</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 h-100">
+                <div class="icon-wrapper mb-3">
+                    <span class="display-4">🎵</span>
+                </div>
+                <h3>Music Content</h3>
+                <p>Create educational music examples and tutorials</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="feature-card p-4 h-100">
+                <div class="icon-wrapper mb-3">
+                    <span class="display-4">🧑🏫</span>
+                </div>
+                <h3>Mentorship</h3>
+                <p>Learn from experienced open-source contributors</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

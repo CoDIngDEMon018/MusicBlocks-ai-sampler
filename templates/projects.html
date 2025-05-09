@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="mb-4">Available Projects</h3>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-6 mb-4">
+        <div class="card pathway-card">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <div class="mb-2">
+                    <span class="badge badge-info">
+                        {{ project.difficulty|capitalize }}
+                    </span>
+                    <span class="badge badge-{{ 'success' if project.status == 'open' else 'secondary' }}">
+                        {{ project.status|capitalize }}
+                    </span>
+                </div>
+                <p class="card-text">{{ project.description }}</p>
+                <p class="text-muted">
+                    <strong>Skills Required:</strong> 
+                    {{ project.skills_required }}
+                </p>
+                
+                {% if 'user_id' in session %}
+                <form method="POST" action="/contribute">
+                    <input type="hidden" name="project_id" value="{{ project.id }}">
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                               name="hours" step="0.5" min="0.5"
+                               placeholder="Hours contributed" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="description"
+                                  placeholder="Contribution details" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Log Contribution
+                    </button>
+                </form>
+                {% else %}
+                <div class="alert alert-warning">
+                    Please <a href="/login">login</a> to contribute
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

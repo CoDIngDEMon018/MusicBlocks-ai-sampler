@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">New Contributor Registration</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="username" 
+                               pattern="[A-Za-z0-9_]+" required
+                               placeholder="Your unique contributor name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" 
+                               minlength="8" required
+                               placeholder="At least 8 characters">
+                    </div>
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <input type="text" class="form-control" name="skills"
+                               placeholder="Python, Music Theory, Education...">
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" name="role">
+                            <option value="contributor">Contributor</option>
+                            <option value="mentor">Mentor</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Create Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

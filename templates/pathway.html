@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h3 class="mb-4">Contribution Pathway</h3>
+        <div class="progress mb-4" style="height: 25px;">
+            <div class="progress-bar bg-success" 
+                 style="width: 33%">Beginner</div>
+            <div class="progress-bar bg-info" 
+                 style="width: 34%">Intermediate</div>
+            <div class="progress-bar bg-warning" 
+                 style="width: 33%">Advanced</div>
+        </div>
+        
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-12 mb-3">
+                <div class="card pathway-card border-{{ 
+                    'success' if project.difficulty == 'beginner' 
+                    else 'info' if project.difficulty == 'intermediate' 
+                    else 'warning'
+                }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-{{
+                                'success' if project.difficulty == 'beginner' 
+                                else 'info' if project.difficulty == 'intermediate' 
+                                else 'warning'
+                            }}">
+                                {{ project.difficulty|capitalize }}
+                            </span>
+                        </div>
+                        <p class="card-text">{{ project.description }}</p>
+                        <a href="/projects" class="btn btn-outline-primary">
+                            View Project Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">Mentorship Program</div>
+            <div class="card-body">
+                <h5 class="card-title">Get Guidance</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Weekly 1:1 mentoring sessions
+                    </li>
+                    <li class="list-group-item">
+                        Code review assistance
+                    </li>
+                    <li class="list-group-item">
+                        Project planning support
+                    </li>
+                </ul>
+                <a href="/dashboard" class="btn btn-success mt-3">
+                    Request a Mentor
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
